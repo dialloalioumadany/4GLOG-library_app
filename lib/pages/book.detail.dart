@@ -18,7 +18,7 @@ class _BookDetailState extends State<BookDetail> {
         centerTitle: true,
         title: Text(widget.book.title),
         elevation: 10,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.red,
       ),
       body: SingleChildScrollView(
         child: Column(

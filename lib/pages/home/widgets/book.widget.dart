@@ -22,7 +22,8 @@ class BookWidget extends StatelessWidget {
           width: double.infinity,
           height: 100,
           decoration: BoxDecoration(
-            border: Border(bottom: BorderSide(color: Colors.black)),
+            borderRadius: BorderRadius.circular(10),
+            color: Colors.grey.shade300,
           ),
           child: ListTile(
             leading: Image.asset(livre.imageUrl),
