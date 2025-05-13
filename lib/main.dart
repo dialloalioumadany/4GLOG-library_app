@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:library_app/pages/home/home.dart';
+import 'package:library_app/utils/shared_preference_service.dart';
 
 void main() {
   runApp(const MyApp());
@@ -7,16 +8,14 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Bibliothèque App',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-        home: HomePage()
+      home: HomePage(),
     );
   }
 }
-
