@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:library_app/pages/auth/splash_page.dart';
 import 'package:library_app/pages/home/home.dart';
 import 'package:library_app/utils/shared_preference_service.dart';
 
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: HomePage(),
+      home: SplashPage(),
     );
   }
 }

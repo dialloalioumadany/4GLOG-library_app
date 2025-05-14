@@ -48,23 +48,6 @@ class _HomePageState extends State<HomePage> {
   }
 
   @override
-  void initState() {
-    super.initState();
-    load();
-  }
-
-  load() async {
-    var isConnected = await SharedPreferenceService.getValue("isConnected");
-    print("isConnected = ${isConnected}");
-    if ("CONNECTER" != isConnected) {
-      Navigator.pushReplacement(
-        context, 
-        MaterialPageRoute(builder: (_) => LoginPage()),
-      );
-    }
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(

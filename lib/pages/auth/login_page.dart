@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:library_app/pages/home/home.dart';
+import 'package:library_app/pages/services/auth_service.dart';
 import 'package:library_app/utils/shared_preference_service.dart';
 
 class LoginPage extends StatefulWidget {
@@ -16,14 +17,27 @@ class _LoginPageState extends State<LoginPage> {
   bool isObscure = true;
   bool _isLoading = false;
 
-  void _login() {
+  void _login() async {
     if (_formKey.currentState!.validate()) {
       setState(() {
         _isLoading = true;
       });
 
+      AuthService authService = AuthService();
+      authService.login(_emailController.text, _passwordController.text).then((
+        data,
+      ) {
+        print('data = ${data['data']['accessToken']}');
+        SharedPreferenceService.setValue('token', data['data']['accessToken']);
+
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const HomePage()),
+        );
+      });
+
       // Simulation d'un délai de chargement
-      Future.delayed(const Duration(seconds: 2), () {
+      /*Future.delayed(const Duration(seconds: 2), () {
         if (_emailController.text == "dialloalioumadany@gmail.com" &&
             _passwordController.text == "aliou1234") {
           SharedPreferenceService.setValue("isConnected", "CONNECTER");
@@ -42,7 +56,7 @@ class _LoginPageState extends State<LoginPage> {
         setState(() {
           _isLoading = false;
         });
-      });
+      });*/
     }
   }
 
